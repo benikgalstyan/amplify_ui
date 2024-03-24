@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'amplifyconfiguration.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -24,19 +23,11 @@ class _MyAppState extends State<MyApp> {
     _configureAmplify();
   }
 
-  void _configureAmplify() {
-    getAmplifyConfig().then((amplifyConfig) async {
-      try {
-        await Amplify.addPlugin(AmplifyAuthCognito());
-        await Amplify.configure(amplifyConfig);
-
-        safePrint('Successfully configured');
-      } on Exception catch (e) {
-        safePrint('Error configuring Amplify: $e');
-      }
-    });
+  void _configureAmplify() async {
+    final amplifyConfig = await getAmplifyConfig();
+    await Amplify.addPlugin(AmplifyAuthCognito());
+    await Amplify.configure(amplifyConfig);
   }
-
 
   @override
   Widget build(BuildContext context) {
