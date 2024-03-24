@@ -1,0 +1,7 @@
+{
+  "assetsBucketName": "your-assets-bucket-name",
+  "apiUrl": "https://your-api-url.com",
+  "clientId": "your-app-client-id",
+  "poolId": "your-user-pool-id",
+  "identityPoolId": "your-identity-pool-id"
+}
